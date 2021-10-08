@@ -1,5 +1,4 @@
-import wf_core_data.rosters.shared_constants
-import wf_core_data.rosters.shared_functions
+import wf_core_data
 import pandas as pd
 import os
 import logging
@@ -118,10 +117,10 @@ def create_roster_and_write_locally(
         )
     )
     master_roster_data = pd.read_pickle(filename)
-    fastbridge_roster_data = wf_core_data.create_roster(
+    fastbridge_roster_data = create_roster(
         master_roster_data=master_roster_data
     )
-    wf_core_data.write_rosters_local(
+    write_rosters_local(
         fastbridge_roster_data=fastbridge_roster_data,
         base_directory=base_directory,
         subdirectory=fastbridge_roster_subdirectory,
