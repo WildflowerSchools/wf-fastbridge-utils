@@ -6,10 +6,10 @@ VERSION = open(os.path.join(BASEDIR, 'VERSION')).read().strip()
 
 # Dependencies (format is 'PYPI_PACKAGE_NAME[>]=VERSION_NUMBER')
 BASE_DEPENDENCIES = [
+    'wf-core-data-python>=1.1.0',
     'pandas>=1.3',
     'numpy>=1.19',
-    'requests>=2.25',
-    'gspread-pandas>=2.2'
+    'inflection>=0.5.1'
 ]
 
 # TEST_DEPENDENCIES = [
@@ -25,13 +25,13 @@ BASE_DEPENDENCIES = [
 os.chdir(os.path.normpath(BASEDIR))
 
 setup(
-    name='wf-core-data-python',
+    name='wf-fastbridge-utils',
     packages=find_packages(),
     version=VERSION,
     include_package_data=True,
-    description='Python tools for working with Wildflower Schools core data',
+    description='Tools for working with FastBridge assessments data',
     long_description=open('README.md').read(),
-    url='https://github.com/WildflowerSchools/wf-core-data-python',
+    url='https://github.com/WildflowerSchools/wf-fastbridge-utils',
     author='Theodore Quinn',
     author_email='ted.quinn@wildflowerschools.org',
     install_requires=BASE_DEPENDENCIES,
