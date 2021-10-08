@@ -97,7 +97,7 @@ FASTBRIDGE_TESTABLE_GRADES = [
     '12'
 ]
 
-def create_fastbridge_roster_and_write_locally(
+def create_roster_and_write_locally(
     base_directory,
     filename_suffix,
     master_roster_subdirectory='master_rosters',
@@ -118,10 +118,10 @@ def create_fastbridge_roster_and_write_locally(
         )
     )
     master_roster_data = pd.read_pickle(filename)
-    fastbridge_roster_data = wf_core_data.create_fastbridge_roster(
+    fastbridge_roster_data = wf_core_data.create_roster(
         master_roster_data=master_roster_data
     )
-    wf_core_data.write_fastbridge_rosters_local(
+    wf_core_data.write_rosters_local(
         fastbridge_roster_data=fastbridge_roster_data,
         base_directory=base_directory,
         subdirectory=fastbridge_roster_subdirectory,
@@ -129,7 +129,7 @@ def create_fastbridge_roster_and_write_locally(
         filename_suffix=filename_suffix
     )
 
-def create_fastbridge_roster(
+def create_roster(
     master_roster_data
 ):
     ## Rename fields
@@ -209,7 +209,7 @@ def create_fastbridge_roster(
     ))
     return fastbridge_roster_data
 
-def write_fastbridge_rosters_local(
+def write_rosters_local(
     fastbridge_roster_data,
     base_directory,
     subdirectory='fastbridge_rosters',
