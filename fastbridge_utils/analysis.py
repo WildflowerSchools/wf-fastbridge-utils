@@ -155,7 +155,7 @@ DEFAULT_SCHOOL_YEAR_DURATION_MONTHS = 9
 DEFAULT_ROLLOVER_MONTH = 7
 DEFAULT_ROLLOVER_DAY = 31
 
-def fetch_fastbridge_results_local_directory(
+def fetch_results_local_directory(
     dir_path,
     rollover_month=DEFAULT_ROLLOVER_MONTH,
     rollover_day=DEFAULT_ROLLOVER_DAY
@@ -178,21 +178,21 @@ def fetch_fastbridge_results_local_directory(
         paths.append(file_path)
     if len(paths) == 0:
         raise ValueError('No CSV files found in directory')
-    results = fetch_fastbridge_results_local_files(
+    results = fetch_results_local_files(
         paths=paths,
         rollover_month=rollover_month,
         rollover_day=rollover_day
     )
     return results
 
-def fetch_fastbridge_results_local_files(
+def fetch_results_local_files(
     paths,
     rollover_month=DEFAULT_ROLLOVER_MONTH,
     rollover_day=DEFAULT_ROLLOVER_DAY
 ):
     results_list=list()
     for path in paths:
-        results_file = fetch_fastbridge_results_local_file(
+        results_file = fetch_results_local_file(
             path=path,
             school_year=None,
             rollover_month=rollover_month,
@@ -205,7 +205,7 @@ def fetch_fastbridge_results_local_files(
     )
     return results
 
-def fetch_fastbridge_results_local_file(
+def fetch_results_local_file(
     path,
     school_year=None,
     rollover_month=DEFAULT_ROLLOVER_MONTH,
@@ -228,7 +228,7 @@ def fetch_fastbridge_results_local_file(
     results.insert(0, 'school_year', school_year)
     return results
 
-def parse_fastbridge_results(
+def parse_results(
     results
 ):
     test_events = extract_test_events(results)
