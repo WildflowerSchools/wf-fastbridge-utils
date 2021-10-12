@@ -615,6 +615,10 @@ def summarize_by_group(
             num_met_growth_goal=('met_growth_goal', 'sum'),
             num_met_attainment_goal=('met_attainment_goal', 'sum'),
             num_met_goal=('met_goal', 'sum'),
+            num_valid_starting_percentile=('starting_percentile', 'count'),
+            mean_starting_percentile=('starting_percentile', 'mean'),
+            num_valid_ending_percentile=('ending_percentile', 'count'),
+            mean_ending_percentile=('ending_percentile', 'mean'),
             num_valid_percentile_growth=('percentile_growth', 'count'),
             mean_percentile_growth=('percentile_growth', 'mean'),
             mean_percentile_growth_per_school_year=('percentile_growth_per_school_year', 'mean')
@@ -631,6 +635,10 @@ def summarize_by_group(
         'frac_met_growth_goal',
         'frac_met_attainment_goal',
         'frac_met_goal',
+        'num_valid_starting_percentile',
+        'mean_starting_percentile',
+        'num_valid_ending_percentile',
+        'mean_ending_percentile',
         'num_valid_percentile_growth',
         'mean_percentile_growth',
         'mean_percentile_growth_per_school_year'
