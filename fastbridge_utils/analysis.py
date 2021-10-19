@@ -633,6 +633,22 @@ def summarize_by_group(
     groups['frac_met_growth_goal'] = groups['num_met_growth_goal'].astype('float')/groups['num_valid_goal_info'].astype('float')
     groups['frac_met_attainment_goal'] = groups['num_met_attainment_goal'].astype('float')/groups['num_valid_goal_info'].astype('float')
     groups['frac_met_goal'] = groups['num_met_goal'].astype('float')/groups['num_valid_goal_info'].astype('float')
+    groups['mean_starting_percentile_sem'] = np.divide(
+        groups['starting_percentile_sd'],
+        np.sqrt(groups['num_valid_starting_percentile'])
+    )
+    groups['mean_ending_percentile_sem'] = np.divide(
+        groups['ending_percentile_sd'],
+        np.sqrt(groups['num_valid_ending_percentile'])
+    )
+    groups['mean_percentile_growth_sem'] = np.divide(
+        groups['percentile_growth_sd'],
+        np.sqrt(groups['num_valid_percentile_growth'])
+    )
+    groups['mean_percentile_growth_per_school_year_sem'] = np.divide(
+        groups['percentile_growth_per_school_year_sd'],
+        np.sqrt(groups['num_valid_percentile_growth'])
+    )
     groups = groups.reindex(columns=[
         'num_valid_test_results',
         'num_valid_goal_info',
@@ -642,14 +658,18 @@ def summarize_by_group(
         'num_valid_starting_percentile',
         'mean_starting_percentile',
         'starting_percentile_sd',
+        'mean_starting_percentile_sem',
         'num_valid_ending_percentile',
         'mean_ending_percentile',
         'ending_percentile_sd',
+        'mean_ending_percentile_sem',
         'num_valid_percentile_growth',
         'mean_percentile_growth',
         'percentile_growth_sd',
+        'mean_percentile_growth_sem',
         'mean_percentile_growth_per_school_year',
-        'percentile_growth_per_school_year_sd'
+        'percentile_growth_per_school_year_sd',
+        'mean_percentile_growth_per_school_year_sem'
     ])
     if filter_dict is not None:
         groups = wf_core_data.utils.filter_dataframe(
